@@ -3,9 +3,7 @@ import Usuario from "./Usuario";
 import { Link, useNavigate } from "react-router-dom";
 import "../estilos/ListaUsuarios.css";
 
-function listaUsuarios({usuarios}) {
-
-
+function listaUsuarios({usuarios, eliminarUsuario}) {
 
     return (
         <div className="containerListaUsuarios">
@@ -20,7 +18,7 @@ function listaUsuarios({usuarios}) {
             </div>
             <div className="usersCards">
                 {usuarios.map((usuarios, index) => (
-                    <Usuario key={index} nombre={usuarios.nombre} email={usuarios.email} edad={usuarios.edad} />
+                    <Usuario key={index} nombre={usuarios.nombre} email={usuarios.email} edad={usuarios.edad} eliminarUsuario={eliminarUsuario}/>
                 ))}
 
             </div>

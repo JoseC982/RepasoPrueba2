@@ -1,0 +1,10 @@
+.useInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    background: #cce0f7;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}

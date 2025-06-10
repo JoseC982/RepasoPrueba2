@@ -1,6 +1,6 @@
 import "../estilos/Usuario.css";
 function Usuario(props) {
-    const { nombre, email, edad } = props;
+    const { index, nombre, email, edad, eliminarUsuario } = props;
     return (
         <div className="containerUser">
             <div className="userCard">
@@ -8,6 +8,7 @@ function Usuario(props) {
                     <h1 className="nombreUsuario">{nombre}</h1>
                     <p>{email}</p>
                     <p>{edad}</p>
+                    <button onClick={()=>eliminarUsuario(index)}>Eliminar</button>
                 </div>
             </div>
         </div>

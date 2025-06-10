@@ -22,31 +22,42 @@ function App() {
   ]);
 
   const [state, setState] = useState(
-    {id: "",
-    nombre: "",
-    email: "",
-    edad: ""}
+    {
+      id: "",
+      nombre: "",
+      email: "",
+      edad: ""
+    }
   );
 
   const agregarUsuario = (nuevoUsuario) => {
     setUsuarios((prev) => [...prev, nuevoUsuario]);
   };
 
+  const eliminarUsuario = (index) => {
+    console.log("Item seleccionado", index);
 
+    setUsuarios((prev) => prev.filter((usuario, i) => i !== index));
+  }
 
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/listausuarios" element={<Listausuarios usuarios={usuarios} />} />
+        <Route path="/listausuarios" element={
+          <Listausuarios
+            usuarios={usuarios}
+            eliminarUsuario={eliminarUsuario}
+          />
+        } />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/crearUsuario" element={
-          <CrearUsuario 
-          state={state} 
-          setState={setState}
-          agregarUsuario={agregarUsuario}
+          <CrearUsuario
+            state={state}
+            setState={setState}
+            agregarUsuario={agregarUsuario}
           />
-          } />
+        } />
       </Routes>
     </BrowserRouter>
   );
